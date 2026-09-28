@@ -1,2 +1,3 @@
 # theme-bootstrap
-A little theme built with Bootstrap
+
+A little theme built with Bootstrap.

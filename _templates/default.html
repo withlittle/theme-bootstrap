@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.name }}</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  </head>
+  <body>
+    <header class="navbar bg-body border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ site.title }}</a>
+      </div>
+    </header>
+    <nav>
+      <div class="container-fluid">
+        <ul class="nav flex-column">
+          {% for item in site.nav recursive %}
+            <li class="nav-item">
+            {% if item.url %}
+              <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url | safe }}">{{ item.title }}</a>
+            {% else %}
+              {{ item.title }}
+            {% endif %}
+            {% if item.children %}
+              <ul>
+                {{ loop(item.children) }}
+              </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container-fluid">
+        {{ page.content | safe }}
+      </div>
+    </main>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
