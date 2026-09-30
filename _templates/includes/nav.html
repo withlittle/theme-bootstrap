@@ -1,0 +1,16 @@
+<ul class="nav flex-column">
+  {% for item in site.nav recursive %}
+    <li class="nav-item">
+      {% if item.url %}
+        <a class="nav-link p-0{% if item.url == page.url %} active fw-bold{% endif %}" href="{{ item.url | safe }}">{{ item.title }}</a>
+      {% else %}
+        {{ item.title }}
+      {% endif %}
+      {% if item.children %}
+        <ul class="nav flex-column">
+          {{ loop(item.children) }}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

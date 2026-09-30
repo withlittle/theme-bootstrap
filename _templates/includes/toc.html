@@ -1,0 +1,12 @@
+<ul class="nav flex-column">
+  {% for item in page.toc recursive %}
+    <li class="nav-item">
+      <a class="nav-link p-0" href="{{ item.url | safe }}">{{ item.title }}</a>
+      {% if item.children %}
+        <ul class="nav flex-column">
+          {{ loop(item.children) }}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

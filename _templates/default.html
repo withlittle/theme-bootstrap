@@ -1,43 +1,37 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} | {{ site.name }}</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-  </head>
-  <body>
-    <header class="navbar bg-body border-bottom">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">{{ site.name }}</a>
-      </div>
-    </header>
-    <nav>
-      <div class="container-fluid">
-        <ul class="nav flex-column">
-          {% for item in site.nav recursive %}
-            <li class="nav-item">
-            {% if item.url %}
-              <a class="nav-link{% if item.url == page.url %} active{% endif %}" href="{{ item.url | safe }}">{{ item.title }}</a>
-            {% else %}
-              {{ item.title }}
-            {% endif %}
-            {% if item.children %}
-              <ul>
-                {{ loop(item.children) }}
-              </ul>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </nav>
-    <main>
-      <div class="container-fluid">
-        {{ page.content | safe }}
+{% extends 'base.html' %}
+{% block content %}
+  <main class="bg-body">
+    <div class="container">
+      <div class="row g-0">
+        <div class="d-none d-xxl-block col-xxl-3">
+          <nav class="small py-4 pe-4" aria-label="Main navigation">
+            {% include 'includes/nav.html' %}
+          </nav>
+        </div>
+        <div class="col-12 col-lg-9 col-xxl-6">
+          {% if page.breadcrumbs %}
+            <nav class="small pt-4" aria-label="Breadcrumb navigation">
+              {% include 'includes/breadcrumbs.html' %}
+            </nav>
+          {% endif %}
+          <article class="py-4">
+            {{ page.content | safe }}
+          </article>
+          {% if page.prev or page.next %}
+            <nav class="py-4 d-print-none" aria-label="Pagination">
+              {% include 'includes/pagination.html' %}
+            </nav>
+          {% endif %}
+        </div>
+        <div class="d-none d-lg-block col-lg-3">
+          {% if page.toc %}
+            <nav class="small py-4 ps-4" aria-label="Page navigation">
+              <h2 class="small text-uppercase">On this page</h2>
+              {% include 'includes/toc.html' %}
+            </nav>
+          {% endif %}
+        </div>
       </div>
     </main>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+  </main>
+{% endblock %}
