@@ -3,33 +3,41 @@
   <main class="bg-body">
     <div class="container">
       <div class="row g-0">
-        <div class="d-none d-xxl-block col-xxl-3">
-          <nav class="small py-4 pe-4" aria-label="Main navigation">
-            {% include 'includes/nav.html' %}
-          </nav>
+        <div class="d-none d-xxl-block col-xxl-3 vh-100 sticky-top overflow-auto d-print-none">
+          <div class="py-4 pe-4">
+            <nav class="small" aria-label="Main navigation">
+              {% include 'includes/nav.html' %}
+            </nav>
+          </div>
         </div>
         <div class="col-12 col-lg-9 col-xxl-6">
-          {% if page.breadcrumbs %}
-            <nav class="small pt-4" aria-label="Breadcrumb navigation">
-              {% include 'includes/breadcrumbs.html' %}
-            </nav>
-          {% endif %}
-          <article class="py-4">
-            {{ page.content | safe }}
-          </article>
-          {% if page.prev or page.next %}
-            <nav class="py-4 d-print-none" aria-label="Pagination">
-              {% include 'includes/pagination.html' %}
-            </nav>
-          {% endif %}
+          <div class="py-4 pe-lg-4 px-xxl-4">
+            {% if page.breadcrumbs %}
+              <nav class="mb-4 small d-print-none" aria-label="Breadcrumb navigation">
+                {% include 'includes/breadcrumbs.html' %}
+              </nav>
+            {% endif %}
+            <article class="mb-4">
+              {{ page.content | safe }}
+            </article>
+            {% if page.prev or page.next %}
+              <nav class="mb-4 d-print-none" aria-label="Pagination">
+                {% include 'includes/pagination.html' %}
+              </nav>
+            {% endif %}
+          </div>
         </div>
-        <div class="d-none d-lg-block col-lg-3">
-          {% if page.toc %}
-            <nav class="small py-4 ps-4" aria-label="Page navigation">
-              <h2 class="small text-uppercase">On this page</h2>
-              {% include 'includes/toc.html' %}
-            </nav>
-          {% endif %}
+        <div class="d-none d-lg-block col-lg-3 vh-100 sticky-top overflow-auto d-print-none">
+          <div class="py-4 ps-4">
+            {% if page.toc %}
+              <nav class="small" aria-label="Page navigation">
+                <h2 class="small text-uppercase">On this page</h2>
+                {% include 'includes/toc.html' %}
+                <hr class="my-3">
+                <a href="#top">Back to top</a>
+              </nav>
+            {% endif %}
+          </div>
         </div>
       </div>
     </main>
