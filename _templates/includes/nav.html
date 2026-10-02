@@ -1,15 +1,40 @@
+{#-
+  The main nav. Each item's children are in a Bootstrap collapse, shown and
+  hidden by a button on the item's row, with no script of the theme's own.
+  The items on the way to this page start shown. The button's ▾ turns to
+  point right while they're hidden (see _sass/_nav.scss).
+-#}
+{%- macro has_page(items) -%}
+  {#- Outputs something if this page is one of the items, or under one. -#}
+  {%- for item in items if item.url and item.url == page.url or has_page(item.children) -%}1{%- endfor -%}
+{%- endmacro -%}
+{%- set sections = namespace(count=0) -%}
 <ul class="nav flex-column">
   {% for item in site.nav recursive %}
+    {%- set current = item.url and item.url == page.url %}
     <li class="nav-item">
-      {% if item.url %}
-        <a class="nav-link p-0{% if item.url == page.url %} active{% endif %}" href="{{ item.url | safe }}">{{ item.title }}</a>
+      {% if item.children %}
+        {%- set sections.count = sections.count + 1 %}
+        {%- set id = 'nav-section-' ~ sections.count %}
+        {%- set open = has_page([item]) %}
+        <div class="d-flex align-items-baseline gap-2">
+          {% if item.url %}
+            <a class="nav-link p-0{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
+          {% endif %}
+          <button class="nav-link p-0 flex-grow-1 d-flex align-items-baseline gap-2 text-start{% if not open %} collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-expanded="{{ 'true' if open else 'false' }}">
+            {% if item.url %}<span class="visually-hidden">More {{ item.title }} pages</span>{% else %}<span>{{ item.title }}</span>{% endif %}
+            <span class="nav-toggle-icon ms-auto" aria-hidden="true">&#9662;</span>
+          </button>
+        </div>
+        <div class="collapse{% if open %} show{% endif %}" id="{{ id }}">
+          <ul class="nav flex-column ps-3">
+            {{- loop(item.children) }}
+          </ul>
+        </div>
+      {% elif item.url %}
+        <a class="nav-link p-0{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
       {% else %}
         {{ item.title }}
-      {% endif %}
-      {% if item.children %}
-        <ul class="nav flex-column">
-          {{ loop(item.children) }}
-        </ul>
       {% endif %}
     </li>
   {% endfor %}
