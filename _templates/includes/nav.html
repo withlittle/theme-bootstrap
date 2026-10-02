@@ -1,7 +1,8 @@
 {#-
   The main nav. Each item's children are in a Bootstrap collapse, shown and
-  hidden by a button on the item's row, with no script or styles of the
-  theme's own. The items on the way to this page start shown.
+  hidden by a button on the item's row, with no script of the theme's own.
+  The items on the way to this page start shown. The button's ▾ turns to
+  point right while they're hidden (see _sass/_nav.scss).
 -#}
 {%- macro has_page(items) -%}
   {#- Outputs something if this page is one of the items, or under one. -#}
@@ -22,7 +23,7 @@
           {% endif %}
           <button class="nav-link p-0 flex-grow-1 d-flex align-items-baseline gap-2 text-start{% if not open %} collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-expanded="{{ 'true' if open else 'false' }}">
             {% if item.url %}<span class="visually-hidden">More {{ item.title }} pages</span>{% else %}<span>{{ item.title }}</span>{% endif %}
-            <span class="ms-auto" aria-hidden="true">&#9662;</span>
+            <span class="nav-toggle-icon ms-auto" aria-hidden="true">&#9662;</span>
           </button>
         </div>
         <div class="collapse{% if open %} show{% endif %}" id="{{ id }}">

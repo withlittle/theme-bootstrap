@@ -1,0 +1,9 @@
+// The ▾ on each section's toggle in the main nav (includes/nav.html) turns to
+// point right while the section is hidden. It turns in step with the collapse.
+.nav-toggle-icon {
+  @include transition(transform .35s ease);
+
+  .collapsed > & {
+    transform: rotate(-90deg);
+  }
+}
