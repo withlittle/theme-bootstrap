@@ -1,4 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import "variables";
 @import "bootstrap/scss/bootstrap";
-@import "nav";
+
+.nav-toggle-icon {
+  @include transition(transform .35s ease);
+
+  .collapsed > & {
+    transform: rotate(-90deg);
+  }
+}
+
+
+article {
+
+  blockquote {
+    @extend .blockquote;
+  }
+
+  h1 {
+    @extend .display-6;
+  }
+
+  img {
+    @extend .img-fluid;
+  }
+
+  table {
+    @extend .table;
+  }
+
+}
