@@ -17,7 +17,7 @@
                 {% include 'includes/breadcrumbs.html' %}
               </nav>
             {% endif %}
-            <article class="mb-4">
+            <article data-pagefind-body class="mb-4">
               {{ page.content | safe }}
             </article>
             {% if page.prev or page.next %}
