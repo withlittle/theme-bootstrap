@@ -1,0 +1,55 @@
+:root {
+  /* Colors */
+  --pf-text: #1a1a1a;
+  --pf-text-secondary: #666;
+  --pf-text-muted: #767676;
+  --pf-background: #fff;
+  --pf-border: #e0e0e0;
+  --pf-border-focus: #999;
+  --pf-skeleton: #eee;
+  --pf-skeleton-shine: #f5f5f5;
+  --pf-hover: #f5f5f5;
+  --pf-mark: #1a1a1a;
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Shadows */
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2);
+
+  /* Error states */
+  --pf-error-bg: #fef2f2;
+  --pf-error-border: #fecaca;
+  --pf-error-text: #dc2626;
+  --pf-error-text-secondary: #b91c1c;
+
+  /* Focus ring */
+  --pf-outline-focus: $input-focus-border-color;
+  --pf-outline-width: 2px;
+  --pf-outline-offset: 2px;
+
+  /* Typography */
+  --pf-font: $font-family-sans-serif;
+
+  /* Sizing */
+  --pf-input-height: 36px;
+  --pf-input-font-size: 16px; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+  --pf-summary-font-size: 12px;
+  --pf-result-title-font-size: 14px;
+  --pf-result-excerpt-font-size: 13px;
+
+  /* Results layout */
+  --pf-results-display: flex;
+  --pf-results-flex-direction: column;
+  --pf-results-flex-wrap: nowrap;
+  --pf-results-columns: none; /* grid-template-columns value, used when display is grid */
+  --pf-results-gap: 8px;
+
+  --pf-border-radius: 6px;
+  --pf-image-width: 64px;
+  --pf-image-height: 48px;
+
+  /* Icons (SVG data URIs) */
+  --pf-icon-search: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>');
+  --pf-icon-arrow: url("data:image/svg+xml,...");
+}

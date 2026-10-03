@@ -34,6 +34,9 @@
     <link rel="shortcut icon" href="{{ '/favicon.ico' | url }}">
     <link rel="shortcut icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | url }}">
     <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | url }}">
+    {% if site.search %}
+      <link rel="stylesheet" href="{{ '/search/pagefind-component-ui.css' | url }}">
+    {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
     <title>{{ title | escape }}</title>
   </head>
@@ -61,7 +64,7 @@
     </footer>
     <script src="{{ '/assets/js/bootstrap.bundle.min.js' | url }}"></script>
     {% if site.search %}
-      <script src="{{ '/search/pagefind.js' | url }}"></script>
+      <script type="module" src="{{ '/search/pagefind-component-ui.js' | url }}"></script>
     {% endif %}
   </body>
 </html>
