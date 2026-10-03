@@ -4,16 +4,21 @@
 <div class="modal fade" id="search" tabindex="-1" aria-labelledby="search-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
-      <div class="modal-header visually-hidden">
-        <h2 class="modal-title" id="search-label">Search</h2>
+      <div class="modal-header">
+        <h2 class="modal-title visually-hidden" id="search-label">Search</h2>
+        <pagefind-input class="w-100"></pagefind-input>
       </div>
       <div class="modal-body">
-        <pagefind-config bundle-path="{{ '/search/' | url }}"></pagefind-config>
-        <pagefind-input placeholder="Search..." autofocus></pagefind-input>
+        <p><pagefind-summary></pagefind-summary></p>
         <pagefind-results></pagefind-results>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <dl class="small">
+          <dt class="d-inline"><kbd><i class="bi bi-arrow-down" title="Arrow down"></i></kbd></dt>
+          <dd class="d-inline me-3">Navigate</dd>
+          <dt class="d-inline"><kbd>esc</kbd></dt>
+          <dd class="d-inline">Clear</dd>
+        </dl>
       </div>
     </div>
   </div>

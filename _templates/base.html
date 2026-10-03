@@ -35,17 +35,15 @@
     <link rel="shortcut icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | url }}">
     <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | url }}">
     {% if site.search %}
-      <link rel="stylesheet" href="{{ '/search/pagefind-component-ui.css' | url }}">
+      <link rel="stylesheet" href="{{ '/pagefind/pagefind-component-ui.css' | url }}">
     {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
     <title>{{ title | escape }}</title>
   </head>
   <body class="bg-body-tertiary" id="top">
-
     <header class="navbar bg-body border-bottom">
       <div class="container">
         <a class="navbar-brand" href="{{ '/' | url }}">
-          <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24">
           {{ site.name }}
         </a>
         <div class="ms-auto">
@@ -64,7 +62,7 @@
     </footer>
     <script src="{{ '/assets/js/bootstrap.bundle.min.js' | url }}"></script>
     {% if site.search %}
-      <script type="module" src="{{ '/search/pagefind-component-ui.js' | url }}"></script>
+      <script src="{{ '/pagefind/pagefind-component-ui.js' | url }}" defer></script>
     {% endif %}
   </body>
 </html>
