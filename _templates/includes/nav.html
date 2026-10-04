@@ -1,9 +1,3 @@
-{#-
-  The main nav. Each item's children are in a Bootstrap collapse, shown and
-  hidden by a button on the item's row, with no script of the theme's own.
-  The items on the way to this page start shown. The button's ▾ turns to
-  point right while they're hidden (see _sass/_nav.scss).
--#}
 {%- macro has_page(items) -%}
   {#- Outputs something if this page is one of the items, or under one. -#}
   {%- for item in items if item.url and item.url == page.url or has_page(item.children) -%}1{%- endfor -%}
