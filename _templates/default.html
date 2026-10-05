@@ -21,7 +21,7 @@
               {{ page.content | safe }}
             </article>
             {% if page.prev or page.next %}
-              <nav class="mb-4 d-print-none" aria-label="Pagination">
+              <nav class="my-5 d-print-none" aria-label="Pagination">
                 {% include 'includes/pagination.html' %}
               </nav>
             {% endif %}
@@ -31,7 +31,7 @@
           <div class="py-4 ps-4">
             {% if page.toc %}
               <nav class="mb-4" aria-label="Page navigation">
-                <h2 class="text-uppercase">On this page</h2>
+                <h2 class="text-uppercase small">On this page</h2>
                 {% include 'includes/toc.html' %}
               </nav>
             {% endif %}
