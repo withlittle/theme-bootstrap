@@ -7,6 +7,18 @@
 @import "pagefind";
 @import "prose";
 
+[data-bs-theme="light"] {
+  .d-light-none {
+    display: none;
+  }
+}
+
+[data-bs-theme=dark] {
+  .d-dark-none {
+    display: none;
+  }
+}
+
 .breadcrumb {
   a {
     text-decoration: none;
@@ -17,5 +29,36 @@
   @include transition(transform .35s ease);
   .collapsed > & {
     transform: rotate(-90deg);
+  }
+}
+
+article {
+  :is(h1, h2, h3, h4, h5, h6) {
+    .anchor {
+      &::before {
+        content: "#";
+      }
+      @extend .ms-2;
+      color: var(--bs-link-hover-color);
+      text-decoration: none;
+      opacity: 0;
+    }
+    &:hover {
+      .anchor {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+nav {
+  a {
+    &.card {
+      &:hover {
+        border-color: var(--bs-link-hover-color);
+        @extend .shadow-sm;
+        @include transition($btn-transition);
+      }
+    }
   }
 }
