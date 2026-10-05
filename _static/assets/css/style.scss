@@ -4,6 +4,18 @@
 @import "bootstrap-icons";
 @import "highlight";
 @import "math";
-@import "nav";
 @import "pagefind";
 @import "prose";
+
+.breadcrumb {
+  a {
+    text-decoration: none;
+  }
+}
+
+.nav-toggle-icon {
+  @include transition(transform .35s ease);
+  .collapsed > & {
+    transform: rotate(-90deg);
+  }
+}
