@@ -29,7 +29,6 @@
   // h1 - h6
   h1 {
     @extend .mb-5;
-    @extend .display-6;
   }
   h2 {
     @extend .mb-4;
@@ -91,7 +90,7 @@
     @extend .table;
   }
 
-  // ol
+  // ul
   ul {
     list-style-type: disc;
     ul {
