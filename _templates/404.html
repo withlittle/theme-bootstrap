@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-  <main>
+  <main class="bg-body py-5 d-flex flex-column justify-content-center align-items-center overflow-hidden text-center">
     <div class="container">
-      <h1>Page not found</h1>
-      <p>Nothing to see here. <a href="{{ '/' | url }}">Go home</a></p>
+      <div class="row">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+          <p class="mb-0 text-body-tertiary font-monospace">404</p>
+          <h1>Page not found</h1>
+          <p>The requested page could not be found.</p>
+          <p><a class="btn btn-outline-primary" href="{{ '/' | url }}">Home</a></p>
+        </div>
+      </div>
     </div>
   </main>
 {% endblock %}
