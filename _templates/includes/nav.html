@@ -13,11 +13,15 @@
         {%- set open = has_page([item]) %}
         <div class="d-flex align-items-baseline gap-2">
           {% if item.url %}
-            <a class="nav-link p-0{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
+            <a class="nav-link{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
           {% endif %}
           <button class="nav-link p-0 flex-grow-1 d-flex align-items-baseline gap-2 text-start{% if not open %} collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-expanded="{{ 'true' if open else 'false' }}">
             {% if item.url %}<span class="visually-hidden">More {{ item.title }} pages</span>{% else %}<span>{{ item.title }}</span>{% endif %}
-            <span class="nav-toggle-icon ms-auto" aria-hidden="true">&#9662;</span>
+            <span class="nav-toggle-icon ms-auto" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+              </svg>
+            </span>
           </button>
         </div>
         <div class="collapse{% if open %} show{% endif %}" id="{{ id }}">
@@ -26,7 +30,7 @@
           </ul>
         </div>
       {% elif item.url %}
-        <a class="nav-link p-0{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
+        <a class="nav-link{% if current %} active{% endif %}"{% if current %} aria-current="page"{% endif %} href="{{ item.url | safe }}">{{ item.title }}</a>
       {% else %}
         {{ item.title }}
       {% endif %}
