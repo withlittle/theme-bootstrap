@@ -1,2 +1,12 @@
 $font-family-sans-serif: "Noto Sans", sans-serif !default;
 $font-family-monospace: "Noto Sans Mono", monospace !default;
+
+$breadcrumb-font-size: .875rem !default;
+$breadcrumb-margin-bottom: 0 !default;
+$breadcrumb-divider: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>') !default;
+
+$nav-link-padding-y: .25rem !default;
+$nav-link-padding-x: 0 !default;
+$nav-link-font-size: .875rem !default;
+$nav-link-color: var(--bs-secondary) !default;
+$nav-link-hover-color: var(--bs-primary) !default;
