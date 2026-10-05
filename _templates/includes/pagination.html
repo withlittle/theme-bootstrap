@@ -3,10 +3,10 @@
     {% if page.prev %}
       <div class="card h-100">
         <div class="card-body">
-          <div class="card-title small">
-            <h2 class="h6 small m-0 text-uppercase"><i class="bi bi-arrow-left"></i> Previous</h2>
+          <div class="card-title">
+            <h2 class="m-0 text-uppercase"><i class="bi bi-arrow-left"></i> Previous</h2>
           </div>
-          <a class="card-link small" href="{{ page.prev.url }}">{{ page.prev.title }}</a>
+          <a class="card-link" href="{{ page.prev.url }}">{{ page.prev.title }}</a>
         </div>
       </div>
     {% endif %}
@@ -15,10 +15,10 @@
     {% if page.next %}
       <div class="card h-100 text-end">
         <div class="card-body">
-          <div class="card-title small">
-            <h2 class="h6 small m-0 text-uppercase">Next <i class="bi bi-arrow-right"></i></h2>
+          <div class="card-title">
+            <h2 class="m-0 text-uppercase">Next <i class="bi bi-arrow-right"></i></h2>
           </div>
-          <a class="card-link small" href="{{ page.next.url }}">{{ page.next.title }}</a>
+          <a class="card-link" href="{{ page.next.url }}">{{ page.next.title }}</a>
         </div>
       </div>
     {% endif %}
