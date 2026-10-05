@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+  {% for item in page.breadcrumbs %}
+    <li class="breadcrumb-item">
+      {% if item.url %}
+        <a href="{{ item.url | safe }}">{{ item.title }}</a>
+      {% else %}
+        {{ item.title }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+</ol>
