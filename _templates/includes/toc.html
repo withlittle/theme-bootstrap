@@ -1,7 +1,7 @@
 <ul class="nav flex-column">
   {% for item in page.toc recursive %}
     <li class="nav-item">
-      <a class="nav-link p-0" href="{{ item.url | safe }}">{{ item.title }}</a>
+      <a class="nav-link" href="{{ item.url | safe }}">{{ item.title }}</a>
       {% if item.children %}
         <ul class="nav flex-column">
           {{ loop(item.children) }}
@@ -13,6 +13,6 @@
     <hr>
   </li>
   <li class="nav-item">
-    <a class="nav-link p-0" href="#top">Back to top</a>
+    <a class="nav-link" href="#top">Back to top</a>
   </li>
 </ul>
