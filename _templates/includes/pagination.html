@@ -1,26 +1,22 @@
 <div class="row">
   <div class="col-12 col-sm-6 mb-3 mb-sm-0">
     {% if page.prev %}
-      <div class="card h-100">
+      <a class="card h-100 text-decoration-none" href="{{ page.prev.url }}">
         <div class="card-body">
-          <div class="card-title">
-            <h2 class="m-0 text-uppercase"><i class="bi bi-arrow-left"></i> Previous</h2>
-          </div>
-          <a class="card-link" href="{{ page.prev.url }}">{{ page.prev.title }}</a>
+          <div class="card-title text-uppercase small"><i class="bi bi-arrow-left"></i> Previous</div>
+          <div class="card-text text-secondary small">{{ page.prev.title }}</div>
         </div>
-      </div>
+      </a>
     {% endif %}
   </div>
   <div class="col-12 col-sm-6">
     {% if page.next %}
-      <div class="card h-100 text-end">
+      <a class="card h-100 text-decoration-none text-end" href="{{ page.next.url }}">
         <div class="card-body">
-          <div class="card-title">
-            <h2 class="m-0 text-uppercase">Next <i class="bi bi-arrow-right"></i></h2>
-          </div>
-          <a class="card-link" href="{{ page.next.url }}">{{ page.next.title }}</a>
+          <div class="card-title text-uppercase small">Next <i class="bi bi-arrow-right"></i></div>
+          <div class="card-text text-secondary small">{{ page.next.title }}</div>
         </div>
-      </div>
+      </a>
     {% endif %}
   </div>
 </div>
