@@ -3,16 +3,16 @@
 {%- set description = site.description -%}
 {%- set image = '/assets/img/image.jpg' | absolute_url -%}
 
-{%- if page.type == '404' -%}
-  {%- set title = 'Page not found' -%}
-  {%- set description = 'The requested page could not be found.' -%}
-{%- endif -%}
-
 {%- if page.type != 'home' -%}
   {%- set title = page.title ~ ' | ' ~ site_name -%}
   {%- if page.description -%}
     {%- set description = page.description -%}
   {%- endif -%}
+{%- endif -%}
+
+{%- if page.type == '404' -%}
+  {%- set title = 'Page not found' ~ ' | ' ~ site_name -%}
+  {%- set description = 'The requested page could not be found.' -%}
 {%- endif -%}
 <!doctype html>
 <html lang="en" data-bs-theme="light">
@@ -43,20 +43,47 @@
   <body class="bg-body-tertiary" id="top">
     <header class="navbar bg-body border-bottom">
       <div class="container">
-        <a class="navbar-brand" href="{{ '/' | url }}">
-          {{ site.name }}
-        </a>
-        <div class="ms-auto">
+        {% include 'includes/navbar-brand.html' %}
+        <div class="ms-auto d-print-none">
           {% if site.search %}
             {% include 'includes/search.html' %}
           {% endif %}
+          {% if site.repo %}
+            <a class="btn" href="{{ site.repo }}" aria-label="Go to repository">
+              <i class="bi bi-git"></i>
+            </a>
+          {% endif %}
+          <button class="btn d-light-none" type="button" data-bs-theme-value="light" aria-label="Switch to light mode">
+            <i class="bi bi-sun"></i>
+          </button>
+          <button class="btn d-dark-none" type="button" data-bs-theme-value="dark" aria-label="Switch to dark mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button class="btn d-xxl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-nav" aria-controls="offcanvas-nav">
+            <i class="bi bi-list"></i>
+          </button>
         </div>
       </div>
     </header>
     {% block content %}{% endblock %}
-    <footer class="navbar py-4 bg-body-tertiary small">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-nav">
+      <div class="navbar border-bottom">
+        <div class="container-fluid">
+          {% include 'includes/navbar-brand.html' %}
+          <div class="ms-auto">
+            <button class="btn" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+              <i class="bi bi-box-arrow-in-left"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-body py-4">
+        {% include 'includes/nav.html' %}
+      </div>
+    </div>
+    <footer class="navbar border-top py-4 bg-body-tertiary small">
       <div class="container">
-        <p class="m-0 navbar-text">&copy; 2026 {{ site.name }}. All rights reserved.</p>
+        <p class="m-0 navbar-text">&copy; {{ site.year }} {{ site.name }}. All rights reserved.</p>
         <p class="m-0 navbar-text"><i class="bi bi-heart"></i> Built with little.</p>
       </div>
     </footer>
@@ -64,5 +91,6 @@
     {% if site.search %}
       <script src="{{ '/pagefind/pagefind-component-ui.js' | url }}" defer></script>
     {% endif %}
+    <script src="{{ '/assets/js/script.js' | url }}"></script>
   </body>
 </html>
