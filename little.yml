@@ -1,1 +1,10 @@
 search: true
+mermaid:
+  theme: base
+  themeVariables:
+    primaryColor: "#fff"
+    primaryTextColor: "#212529"
+    primaryBorderColor: "#dee2e6"
+    lineColor: "#212529"
+    secondaryColor: "#fff"
+    tertiaryColor: "#fff"
