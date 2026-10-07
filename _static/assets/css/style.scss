@@ -35,6 +35,9 @@
 
 nav {
   a {
+    &.active {
+      color: var(--bs-link-color);
+    }
     &.card {
       &:hover {
         border-color: var(--bs-link-hover-color);
