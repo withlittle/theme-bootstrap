@@ -33,25 +33,6 @@
   }
 }
 
-article {
-  :is(h2, h3, h4, h5, h6) {
-    .anchor {
-      &::before {
-        content: "#";
-      }
-      @extend .ms-2;
-      color: var(--bs-link-hover-color);
-      text-decoration: none;
-      opacity: 0;
-    }
-    &:hover {
-      .anchor {
-        opacity: 1;
-      }
-    }
-  }
-}
-
 nav {
   a {
     &.card {
