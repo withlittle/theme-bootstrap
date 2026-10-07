@@ -1,3 +1,44 @@
+// The colours of code in Bootstrap's docs, in light and dark mode, for the
+// classes Pygments gives tokens: `k` for a keyword, `s2` for a string in `"`.
+// Each class has the colour of the token Prism, which Bootstrap's docs use,
+// gives the same code. From Bootstrap's site/src/scss/_syntax.scss:
+// https://github.com/twbs/bootstrap/blob/main/site/src/scss/_syntax.scss
+
+:root,
+[data-bs-theme="light"] {
+  --base02: #c8c8fa;
+  --base03: #565c64;
+  --base04: #666;
+  --base05: #333;
+  --base06: #fff;
+  --base07: #{$teal-700};
+  --base08: #{mix($red-500, $red-600, 50%)};
+  --base09: #{$cyan-700};
+  --base0A: #{$purple-500};
+  --base0B: #{$blue-700};
+  --base0C: #{$blue-700};
+  --base0D: #{$purple-500};
+  --base0E: #{$pink-600};
+  --base0F: #333;
+}
+
+@include color-mode(dark, true) {
+  --base02: #3e4451;
+  --base03: #868e96;
+  --base04: #868e96;
+  --base05: #abb2bf;
+  --base06: #b6bdca;
+  --base07: #{$orange-300};
+  --base08: #{$cyan-300};
+  --base09: #{$orange-300};
+  --base0A: #{$yellow-200};
+  --base0B: #{$teal-300};
+  --base0C: #{$teal-300};
+  --base0D: #{$blue-300};
+  --base0E: #{$indigo-200};
+  --base0F: #{$red-300};
+}
+
 .highlight {
 
   @extend .w-100;
@@ -20,53 +61,58 @@
     @extend .text-body-secondary;
   }
 
+  .hll {
+    background-color: var(--base02);
+  }
+
+  .c,
+  .ch,
+  .cm,
+  .c1,
+  .cs,
+  .gp {
+    color: var(--base03);
+  }
+
+  .p,
   .o,
+  .ni,
+  .si,
+  .nd {
+    color: var(--base05);
+  }
+
+  .cp,
+  .nb,
+  .py,
+  .sr {
+    color: var(--base0A);
+  }
+
+  .nt,
+  .no,
+  .ss,
+  .nv,
+  .vc,
+  .vg,
+  .vi,
+  .vm {
+    color: var(--base08);
+  }
+
+  .kc,
   .m,
   .mb,
   .mf,
   .mh,
   .mi,
   .mo,
-  .il,
-  .go,
-  .ni,
-  .w {
-    color: $gray-400;
+  .il {
+    color: var(--base09);
   }
 
-  .gh,
-  .gp,
-  .gt,
-  .nc,
-  .nf,
-  .nn,
-  .fm,
-  .nv,
-  .ss,
-  .vc,
-  .vg,
-  .vi,
-  .vm {
-    color: $blue-400;
-  }
-
-  .nd,
-  .ow {
-    color: $indigo-400;
-  }
-
-  .gu {
-    color: $purple-400;
-  }
-
-  .si,
-  .sr {
-    color: $pink-400;
-  }
-
-  .gd,
-  .gr,
-  .kt,
+  .cpf,
+  .na,
   .s,
   .sa,
   .sb,
@@ -74,77 +120,94 @@
   .dl,
   .sd,
   .s2,
+  .se,
   .sh,
   .s1,
-  .no,
-  .ne  {
-    color: $red-400;
+  .sx {
+    color: var(--base0C);
   }
 
-  .cp,
-  .se {
-    color: $orange-400;
-  }
-
-  .hll {
-    background-color: $yellow-100;
-  }
-
-  .c,
-  .ch,
-  .cm,
-  .cpf,
-  .c1,
-  .cs,
   .k,
-  .kc,
   .kd,
   .kn,
   .kp,
   .kr,
-  .nb,
-  .nt,
-  .sx,
-  .bp,
-  .gi,
-  .na,
-  .nl {
+  .kt,
+  .ow,
+  .bp {
+    color: var(--base0E);
+  }
+
+  .nf,
+  .fm {
+    color: var(--base0B);
+  }
+
+  .nc,
+  .ne {
+    color: var(--base07);
+  }
+
+  .gh {
+    color: var(--base0A);
+  }
+
+  .gh,
+  .gs {
+    font-weight: $font-weight-bold;
+  }
+
+  .ge {
+    font-style: italic;
+  }
+
+  .gd {
+    color: $red-400;
+  }
+
+  .gi {
     color: $green-400;
   }
 
-  .k,
-  .gh,
-  .gp,
-  .gs,
-  .gu,
-  .kc,
-  .kd,
-  .kn,
-  .kr,
-  .nc,
-  .ni,
-  .ne,
-  .nn,
-  .nt,
-  .ow,
-  .se,
-  .si {
-    @extend .fw-bold;
+  // An attribute's value, as in HTML.
+  .na + .s,
+  .na + .s1,
+  .na + .s2 {
+    color: var(--base0E);
   }
 
-  .c,
-  .ch,
-  .cm,
-  .cpf,
-  .c1,
-  .cs,
-  .ge,
-  .sd {
-    @extend .fst-italic;
+  // A key in JSON is a property to Prism.
+  .language-json,
+  .language-jsonc {
+    .nt {
+      color: var(--base0A);
+    }
   }
 
-  .err {
-    border: 1px solid $red-400;
+  // A selector in CSS has one colour, and a value none.
+  .language-css,
+  .language-scss {
+    .na,
+    .nt {
+      color: var(--base07);
+    }
+
+    .m,
+    .no {
+      color: var(--bs-body-color);
+    }
   }
 
+  // Nor does a global in JavaScript, like `document`.
+  .language-js,
+  .language-javascript {
+    .nb {
+      color: inherit;
+    }
+  }
+
+  // little gives a variable in SCSS no class, so colour what has none.
+  .language-scss {
+    color: var(--base08);
+  }
 }
