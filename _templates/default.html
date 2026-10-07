@@ -18,7 +18,7 @@
               </nav>
             {% endif %}
             <article data-pagefind-body class="prose mb-4">
-              {{ page.content | safe }}
+              {% include 'includes/content.html' %}
             </article>
             {% if page.prev or page.next %}
               <nav class="my-5 d-print-none" aria-label="Pagination">
