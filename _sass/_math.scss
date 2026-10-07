@@ -1,10 +1,15 @@
 math {
+
   font-family: "Noto Sans Math", math;
+
+  &[display="block"] {
+    @extend .overflow-x-auto;
+    @extend .overflow-y-hidden;
+    @extend .mb-4;
+  }
+
   mtext {
     font-family: $font-family-sans-serif;
   }
-  [display="block"] {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
+
 }
