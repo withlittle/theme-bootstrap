@@ -8,10 +8,14 @@
   // blockquote
   blockquote {
     @extend .blockquote;
+    @extend .border-start;
+    @extend .border-4;
+    @extend .ps-3;
+    @extend .small;
   }
 
   // figure
-  figure:not(.highlight figure) {
+  figure {
     @extend .figure;
     figcaption {
       @extend .figure-caption;
@@ -28,7 +32,10 @@
 
   // h1 - h6
   h1 {
-    @extend .mb-5;
+    @extend .display-6;
+    @extend .border-bottom;
+    @extend .pb-3;
+    @extend .mb-4;
   }
   h2 {
     @extend .mb-4;
@@ -44,6 +51,23 @@
   }
   h6 {
     @extend .mb-2;
+  }
+
+  :is(h2, h3, h4, h5, h6) {
+    .anchor {
+      &::before {
+        content: "#";
+      }
+      @extend .ms-2;
+      color: var(--bs-link-hover-color);
+      text-decoration: none;
+      opacity: 0;
+    }
+    &:hover {
+      .anchor {
+        opacity: 1;
+      }
+    }
   }
 
   // hr
@@ -80,14 +104,18 @@
   // pre
   pre {
     @extend .w-100;
-    @extend .bg-light;
+    @extend .bg-body-tertiary;
     @extend .p-3;
     @extend .rounded;
+    @extend .border;
+    @extend .small;
   }
 
   // table
-  table:not(.highlight table) {
+  table {
     @extend .table;
+    @extend .table-sm;
+    @extend .small;
   }
 
   // ul
@@ -111,25 +139,16 @@
   }
 
   // Blocks
-  .highlight,
   address,
   dl,
-  figure:not(.highlight figure),
+  figure,
   form,
   ol:not(li ol),
   p,
   pre,
-  table:not(.highlight table),
+  table,
   ul:not(li ul) {
     @extend .mb-4;
   }
 
-}
-
-[data-bs-theme="dark"] {
-  .prose {
-    pre {
-      @extend .bg-black;
-    }
-  }
 }
