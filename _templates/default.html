@@ -17,7 +17,7 @@
                 {% include 'includes/breadcrumb.html' %}
               </nav>
             {% endif %}
-            <article data-pagefind-body class="prose mb-4">
+            <article data-pagefind-body class="prose mb-4" data-bs-spy="scroll" data-bs-target="#toc" data-bs-smooth-scroll="true" tabindex="0">
               {% include 'includes/content.html' %}
             </article>
             {% if page.prev or page.next %}
@@ -30,7 +30,7 @@
         <div class="d-none d-lg-block col-lg-3 vh-100 sticky-top overflow-auto d-print-none">
           <div class="py-4 ps-4">
             {% if page.toc %}
-              <nav class="mb-4" aria-label="Page navigation">
+              <nav id="toc" class="mb-4" aria-label="Page navigation">
                 <h2 class="text-uppercase small">On this page</h2>
                 {% include 'includes/toc.html' %}
               </nav>
