@@ -1,0 +1,6 @@
+{%- set content = page.content -%}
+
+{#- Make tables responsive -#}
+{%- set content = content | replace('<table>', '<div class="table-responsive"><table>') | replace('</table>', '</table></div>') -%}
+
+{{- content | trim | safe -}}
