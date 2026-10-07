@@ -1,3 +1,4 @@
 svg[id^="mermaid-"] {
+  @extend .d-block;
   @extend .mb-4;
 }
