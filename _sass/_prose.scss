@@ -70,6 +70,12 @@
     }
   }
 
+  :is(h1, h2, h3, h4, h5, h6) {
+    code {
+      color: var(--bs-heading-color);
+    }
+  }
+
   // hr
   hr {
     @extend .mt-5;
@@ -140,6 +146,7 @@
 
   // Blocks
   address,
+  details,
   dl,
   figure,
   form,
